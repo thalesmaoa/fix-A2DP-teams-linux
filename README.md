@@ -1,3 +1,5 @@
+# Fix A2DP for Teams Linux
+
 This was originally posted at [StackExchange](https://askubuntu.com/questions/1085480/bluetooth-headphones-switches-from-a2dp-sink-to-hsp-hfp-when-starting-voip-a/1119934#1119934?newreg=d4b00929a92541afaf3400051f8fd5e0).
 
 > From pulseaudio 10.0 release notes:
@@ -19,4 +21,12 @@ To:
 ifexists module-bluetooth-policy.so
 load-module module-bluetooth-policy auto_switch=false
 .endif
+```
+
+# Fix cedilha
+
+Para teclados internacionais, o cedilha não aparece corretamente. Para consertar, basta editar o arquivo `~/.local/share/applications/teams.desktop` e adicionar:
+
+```
+env GTK_IM_MODULE=cedilla teams %U
 ```
